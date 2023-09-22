@@ -1,6 +1,10 @@
-on:
-  schedule:
-    - cron: "0 12 * * *"
+# This would set the action to run on a schedule, but for now I only want it to 
+# run manually, so I'm using "on: workflow_dispatch" instead
+# on:
+#   schedule:
+#     - cron: "0 12 * * *"
+
+on: workflow_dispatch
 
 jobs:
   scheduled-job:
