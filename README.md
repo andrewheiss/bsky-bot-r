@@ -1,0 +1,54 @@
+
+<!-- README.md is generated from README.qmd. Please edit that file -->
+
+# Build your own Bluesky bot with R!
+
+This is a **super barebones** skeleton example of how to use GitHub
+actions to run an R script that posts content to Bluesky.
+
+A few important notes:
+
+- You need to create a Bluesky app password at
+  <https://bsky.app/settings/app-passwords>
+
+- If you’re running this locally, create a file named `.Renviron` and
+  put this in there:
+
+  ``` sh
+  BSKY_USER="@your-bluesky-username"
+  BSKY_PASS="APP-SPECIFIC-PASSWORD"
+  ```
+
+- Add these environment variables to your GitHub repository by going to
+  Settings \> Secrets and variables \> Actions and creating two new
+  respository secrets with your username and password:
+
+<img src="img/secrets.png"
+id="fig-539a35d47e664c97a50115a146a7f1bd-1" />
+
+- Right now,
+  [`.github/workflows/post-to-bsky.yml`](.github/workflows/post-to-bsky.yml)
+  is configured to only run manually (it uses `on: workflow_dispatch`),
+  but you can adjust that to follow a cron schedule or occur after
+  pushing a commit or whatever. [See this for all the kinds of events
+  you can
+  use](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows).
+
+- [That workflow file](.github/workflows/post-to-bsky.yml) uses [R’s
+  collection of GitHub Actions](https://github.com/r-lib/actions) to
+  install R, install packages from an {renv} lockfile, and run the code.
+  You can make this as fancy as you want.
+
+- Right now, [`script.R`](script.R) connects to the Bluesky API,
+  generates three random numbers, and posts them to Bluesky. It’s super
+  primitive but it works. In real life, you’d want to
+
+  1.  Maybe make a [better wrapper around the
+      API](https://httr2.r-lib.org/articles/wrapping-apis.html)
+  2.  Do something more exciting than generating random numbers. Parse
+      an RSS feed. Generate random text. Post plots or generative
+      artwork. Whatever you want.
+
+  You can make the repository as complex as you want, too. Not
+  everything has to live in `script.R`—the workflow file right now is
+  set to run just that, but you can change it to whatever.
