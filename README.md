@@ -41,7 +41,10 @@ A few important notes:
 - [That workflow file](.github/workflows/post-to-bsky.yml) uses [R’s
   collection of GitHub Actions](https://github.com/r-lib/actions) to
   install R, install packages from an {renv} lockfile, and run the code.
-  You can make this as fancy as you want.
+  You can make this as fancy as you want (and you should probably [add
+  better reporting, and
+  logging](https://epiforecasts.io/posts/2022-04-11-robust-actions/),
+  etc.).
 
 - Right now, [`script.R`](script.R) connects to the Bluesky API,
   generates three random numbers, and posts them to Bluesky. It’s super
