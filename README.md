@@ -23,8 +23,8 @@ A few important notes:
   Settings \> Secrets and variables \> Actions and creating two new
   respository secrets with your username and password:
 
-<img src="img/secrets.png"
-id="fig-539a35d47e664c97a50115a146a7f1bd-1" />
+  <img src="img/secrets.png"
+  id="fig-539a35d47e664c97a50115a146a7f1bd-1" />
 
 - Right now,
   [`.github/workflows/post-to-bsky.yml`](.github/workflows/post-to-bsky.yml)
@@ -33,6 +33,10 @@ id="fig-539a35d47e664c97a50115a146a7f1bd-1" />
   pushing a commit or whatever. [See this for all the kinds of events
   you can
   use](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows).
+  To trigger the action manually, go to Actions \> Name of the workflow
+  \> Run workflow…
+
+  <img src="img/action.png" id="fig-539a35d47e664c97a50115a146a7f1bd-2" />
 
 - [That workflow file](.github/workflows/post-to-bsky.yml) uses [R’s
   collection of GitHub Actions](https://github.com/r-lib/actions) to
@@ -41,7 +45,7 @@ id="fig-539a35d47e664c97a50115a146a7f1bd-1" />
 
 - Right now, [`script.R`](script.R) connects to the Bluesky API,
   generates three random numbers, and posts them to Bluesky. It’s super
-  primitive but it works. In real life, you’d want to
+  primitive but it works. In real life, you’d want to:
 
   1.  Maybe make a [better wrapper around the
       API](https://httr2.r-lib.org/articles/wrapping-apis.html)
